@@ -6,13 +6,6 @@
     A beautiful wallet app made using <strong>React Native</strong> and <strong>Expo CLI</strong>
 </p>
 
-## App Showcase
-
-<div>
-    <img src="https://github.com/ayusshrathore/react-native-wallet/raw/main/screenshots/1.png" width="250" height="500" alt="1.png"/>
-    <img src="https://github.com/ayusshrathore/react-native-wallet/raw/main/screenshots/2.png" width="250" height="500" alt="2.png"/>
-    <img src="https://github.com/ayusshrathore/react-native-wallet/raw/main/screenshots/3.png" width="250" height="500" alt="3.png"/>
-</div>
 
 ## Acknowledgements
 
@@ -57,10 +50,7 @@ Start the expo server. (You'll need a custom expo development client to run this
 
 - [ ] Tabbed Navigation
 
-## Contributing
-
-Contributions are always welcome!
 
 ## Feedback
 
-If you have any feedback, please reach out to me at heyfreaker@gmail.com
+If you have any feedback, please reach out to me at zavala.ricardo.m@gmail.com
