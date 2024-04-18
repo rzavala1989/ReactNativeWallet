@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import styled from "styled-components/native";
 
@@ -21,12 +21,19 @@ const BalanceContainer = styled(Container)`
 `;
 
 const Balance: FC<Props> = ({ route }) => {
+	const [cardData, setCardData] = useState(route?.params);
+
+	const handleRemoveCard = () => {
+		// @ts-ignore
+		setCardData(null);
+	};
+
 	return (
 		<BalanceContainer>
 			<StatusBar style="dark" />
-			<AmountSection balance={route?.params?.balance} />
-			<BalanceCardSection {...route?.params} />
-			<ButtonSection />
+			<AmountSection balance={cardData?.balance} />
+			<BalanceCardSection {...cardData} />
+			<ButtonSection onRemove={handleRemoveCard} alias={cardData?.alias} />
 		</BalanceContainer>
 	);
 };

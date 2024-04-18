@@ -20,7 +20,7 @@ const AmountSection: FC<AmountProps> = ({ balance }) => {
 				Total Balance
 			</SmallText>
 			<RegularText textStyle={{ color: colors.secondary, fontSize: 30 }}>
-				₹{balance}
+				${balance}
 			</RegularText>
 		</AmountSectionBackground>
 	);

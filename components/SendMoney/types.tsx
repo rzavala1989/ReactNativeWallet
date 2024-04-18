@@ -6,8 +6,10 @@ export interface SendMoneyProps {
 	amount: string;
 	background: string;
 	image: ImageSourcePropType;
+	onSendMoney: (id: number) => void;
 }
 
 export interface SendMoneySectionProps {
 	data: Array<SendMoneyProps>;
+	onSendMoney: (id: number) => void;
 }

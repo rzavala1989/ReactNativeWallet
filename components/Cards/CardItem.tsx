@@ -47,7 +47,11 @@ const Logo = styled.Image`
 	flex: 1;
 `;
 
-const CardItem: FC<CardProps> = (props) => {
+interface CardItemProps extends CardProps {
+	onRemove: () => void;
+}
+
+const CardItem: FC<CardItemProps> = ({ onRemove, ...props }) => {
 	const navigation = useNavigation<HomeProps["navigation"]>();
 
 	const handlePress = () => {
@@ -67,7 +71,7 @@ const CardItem: FC<CardProps> = (props) => {
 								Account Balance
 							</SmallText>
 							<RegularText textStyle={{ color: colors.white }}>
-								₹ {props.balance}
+								$ {props.balance}
 							</RegularText>
 						</View>
 						<Logo source={props.logo} />

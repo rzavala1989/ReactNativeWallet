@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "react-native-wallet",
-    "slug": "react-native-wallet",
+    "slug": "native-wallet",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -30,6 +30,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8fd081fd-a4e0-4a08-b7b2-d33adc730a92"
+      }
+    },
+    "owner": "rzavala1989"
   }
 }

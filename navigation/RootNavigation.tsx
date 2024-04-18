@@ -64,7 +64,7 @@ const RootNavigation: FC = () => {
 					options={{
 						headerTitle: (props) => (
 							<Greeting
-								mainText="Hey Freaker!"
+								mainText="Hey Ricardo!"
 								subText="Welcome back"
 								{...props}
 							/>

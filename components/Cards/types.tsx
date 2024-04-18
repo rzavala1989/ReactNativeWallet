@@ -10,4 +10,5 @@ export interface CardProps {
 
 export interface CardSectionProps {
 	data: Array<CardProps>;
+	onRemoveCard: (id: number) => void;
 }

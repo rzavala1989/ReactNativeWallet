@@ -31,8 +31,7 @@ const SendMoneyList = styled.FlatList`
 
 const TextButton = styled.TouchableOpacity``;
 
-const SendMoneySection: FC<SendMoneySectionProps> = ({ data }) => {
-	const sheetRef = useRef<BottomSheet>(null);
+const SendMoneySection: FC<SendMoneySectionProps> = ({ data, onSendMoney }) => {	const sheetRef = useRef<BottomSheet>(null);
 	const renderContent = () => {
 		return (
 			<SendMoneySectionBackground>
@@ -58,14 +57,12 @@ const SendMoneySection: FC<SendMoneySectionProps> = ({ data }) => {
 				</SendMoneyRow>
 				<SendMoneyList
 					data={data}
-					contentContainerStyle={{
-						alignItems: "flex-start",
-					}}
+					contentContainerStyle={{ alignItems: "flex-start" }}
 					horizontal={false}
 					showsVerticalScrollIndicator={false}
 					numColumns={3}
 					keyExtractor={({ id }: any) => id.toString()}
-					renderItem={({ item }: any) => <SendMoneyItem {...item} />}
+					renderItem={({ item }: any) => <SendMoneyItem {...item} onSendMoney={onSendMoney} />}
 				/>
 			</SendMoneySectionBackground>
 		);

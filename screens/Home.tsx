@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, {FC, useState} from "react";
 import { StatusBar } from "expo-status-bar";
 import styled from "styled-components/native";
 
@@ -26,7 +26,7 @@ const HomeContainer = styled(Container)`
 `;
 
 const Home: FC<Props> = () => {
-	const data = [
+	const [cards, setCards] = useState([
 		{
 			id: 1,
 			accountNo: "123456789",
@@ -48,15 +48,33 @@ const Home: FC<Props> = () => {
 			alias: "School Fees",
 			logo: logo2,
 		},
-	];
+	]);
+
+	const handleRemoveCard = (id: number) => {
+		setCards(prevCards => prevCards.filter(card => card.id !== id));
+	};
+
+	const handleSendMoney = (receiverId: number, amount: number) => {
+		setCards(prevCards =>
+			prevCards.map(card =>
+				card.id === 1 ? { ...card, balance: card.balance - amount } : card
+			)
+		);
+
+		setSendMoney(prevSendMoney =>
+			prevSendMoney.map(person =>
+				person.id === receiverId ? { ...person, balance: person.balance + amount } : person
+			)
+		);
+	};
 
 	const transactions = [
 		{
 			id: 1,
-			amount: "-₹15000",
-			date: "12/12/2020",
+			amount: "-$15000",
+			date: "12/11/2023",
 			title: "Travel",
-			subtitle: "Air India",
+			subtitle: "American Airlines",
 			art: {
 				background: colors.primary,
 				icon: "airplane",
@@ -64,8 +82,8 @@ const Home: FC<Props> = () => {
 		},
 		{
 			id: 2,
-			amount: "-₹400",
-			date: "12/12/2020",
+			amount: "-$400",
+			date: "12/12/2023",
 			title: "Taxi",
 			subtitle: "Uber",
 			art: {
@@ -75,8 +93,8 @@ const Home: FC<Props> = () => {
 		},
 		{
 			id: 3,
-			amount: "-₹1000",
-			date: "12/12/2020",
+			amount: "-$1000",
+			date: "12/15/2023",
 			title: "Shopping",
 			subtitle: "Amazon",
 			art: {
@@ -86,36 +104,39 @@ const Home: FC<Props> = () => {
 		},
 	];
 
-	const sendMoney = [
+	const [sendMoney, setSendMoney] = useState([
 		{
 			id: 1,
-			amount: "₹1000",
+			amount: "$1000",
+			balance: 1000,
 			name: "John Doe",
 			background: colors.tertiary,
 			image: portrait1,
 		},
 		{
 			id: 2,
-			amount: "₹2000",
+			amount: "$2000",
+			balance: 2000,
 			name: "Alex Doe",
 			background: colors.accent,
 			image: portrait2,
 		},
 		{
 			id: 3,
-			amount: "₹3000",
+			amount: "$3000",
+			balance: 3000,
 			name: "Steve Doe",
 			background: colors.primary,
 			image: portrait3,
 		},
-	];
+	]);
 
 	return (
 		<HomeContainer>
 			<StatusBar style="dark" />
-			<CardSection data={data} />
+			<CardSection data={cards} onRemoveCard={handleRemoveCard} />
 			<TransactionSection data={transactions} />
-			<SendMoneySection data={sendMoney} />
+			<SendMoneySection data={sendMoney} onSendMoney={handleSendMoney} />
 		</HomeContainer>
 	);
 };

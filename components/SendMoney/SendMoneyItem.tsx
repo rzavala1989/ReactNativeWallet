@@ -18,11 +18,17 @@ const SendMoneyItemContainer = styled.TouchableHighlight`
 `;
 
 const SendMoneyItem: FC<SendMoneyProps> = ({
+	id,
 	background,
 	image,
 	name,
 	amount,
+	onSendMoney
 }) => {
+	const handlePress = () => {
+		onSendMoney(id);
+	}
+
 	return (
 		<SendMoneyItemContainer
 			underlayColor={colors.secondary}

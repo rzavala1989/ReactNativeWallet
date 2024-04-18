@@ -11,7 +11,7 @@ const CardList = styled.FlatList`
 	padding-bottom: 15px;
 `;
 
-const CardSection: FC<CardSectionProps> = ({ data }) => {
+const CardSection: FC<CardSectionProps> = ({ data, onRemoveCard }) => {
 	return (
 		<CardList
 			data={data}
@@ -19,7 +19,7 @@ const CardSection: FC<CardSectionProps> = ({ data }) => {
 			showsHorizontalScrollIndicator={false}
 			contentContainerStyle={{ paddingRight: 50, alignItems: "center" }}
 			keyExtractor={({ id }: any) => id.toString()}
-			renderItem={({ item }: any) => <CardItem {...item} />}
+			renderItem={({ item }: any) => <CardItem {...item} onRemove={() => onRemoveCard(item.id)} />}
 		/>
 	);
 };
